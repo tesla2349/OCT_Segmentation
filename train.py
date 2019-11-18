@@ -37,7 +37,7 @@ for k in range(1001):
     result=result.reshape(256,256)
     result = cv.normalize(result, None, alpha=0, beta=1, norm_type=cv.NORM_MINMAX, dtype=cv.CV_32F)*255
     result = result.reshape(256,256,1)
-    cv.imwrite('results/phase2/unet+rgb/vis/sample_%d.png'%(k), result)
+    cv.imwrite('results/unet+rgb/vis/sample_%d.png'%(k), result)
     if k>0 and k%10==0:
-        model.save('results/phase2/unet+rgb/models/baseline_%d.h5'%(k))
+        model.save('results/unet+rgb/models/baseline_%d.h5'%(k))
     model.fit_generator(myGene,steps_per_epoch=32,epochs=100)
